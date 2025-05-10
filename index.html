@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Розв'яжи приклад</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Розв'яжи приклад, щоб побачити фото GTA San Andreas</h2>
+  <div>
+    <span id="exampleText" style="font-size:24px;"></span>
+  </div>
+  <div>
+    <input type="number" id="userAnswer" placeholder="Ваша відповідь">
+  </div>
+  <button onclick="checkAnswer()">Побачити фото</button>
+
+  <script>
+    let correctAnswer;
+
+    function generateExample() {
+      const num1 = Math.floor(Math.random() * 10) + 1;
+      const num2 = Math.floor(Math.random() * 10) + 1;
+      const operators = ['+', '-', '*', '/'];
+      const operator = operators[Math.floor(Math.random() * operators.length)];
+      let exampleStr = `${num1} ${operator} ${num2}`;
+
+      switch (operator) {
+        case '+': correctAnswer = num1 + num2; break;
+        case '-': correctAnswer = num1 - num2; break;
+        case '*': correctAnswer = num1 * num2; break;
+        case '/':
+          correctAnswer = parseFloat((num1 / num2).toFixed(2)); // округлимо
+          exampleStr = `${num1} ÷ ${num2}`;
+          break;
+      }
+
+      document.getElementById('exampleText').textContent = exampleStr;
+    }
+
+    function checkAnswer() {
+      const user = parseFloat(document.getElementById('userAnswer').value);
+      const roundedCorrect = parseFloat(correctAnswer.toFixed(2));
+
+      if (user === roundedCorrect) {
+        // 🔁 Заміни на своє партнерське посилання:
+        window.open("https://antonytemptedemail.com/svsv2ce1?key=5674864b4c6ac4cff36436b262468344", "_blank");
+      } else {
+        alert("Неправильна відповідь. Спробуй ще раз.");
+        generateExample(); // згенерувати новий приклад
+        document.getElementById('userAnswer').value = "";
+      }
+    }
+
+    window.onload = generateExample;
+  </script>
+</body>
+</html>
